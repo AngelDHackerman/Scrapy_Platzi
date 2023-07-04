@@ -7,3 +7,5 @@ Activar el entorno virtual `source venv/bin/activate`
 
 Una vez activado el entorno virtual, instalar las dependencias con pip3:
 `pip3 install autopep8 scrapy` 
+
+change
