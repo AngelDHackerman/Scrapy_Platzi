@@ -1,0 +1,9 @@
+
+<!-- Pagina de la que estamos haciendo scraping -->
+https://quotes.toscrape.com/
+
+<!-- Trae el titulo de la pagina -->
+response.xpath('//h1/a/text()').get()
+
+<!-- Trae los "quotes" de la pagina -->
+response.xpath('//div[@class="quote"]/span[@class="text"]/text()').getall()
