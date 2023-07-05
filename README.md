@@ -23,3 +23,11 @@ ejecutamos el comando: `scrapy crawl <valor_dentro_de_la_variable>` e.g. __scrap
 
 Para ejecutar la shell interactiva de scrappy es necesario escribir esto en consola: 
 `scrapy shell 'https://DireccionWebScrappyEjemplo.com/'`
+
+## Ejecutando los spiders de scrapy
+
+Con esto se ejecuta el spider que creamos llamado "quotes" y que tenga un output "-o" de un archivo tipo json "quotes.json"
+`scrapy crawl quotes -o quotes.json`
+
+Es exactamente lo de arriba pero guardandolo en un archivo csv.
+`scrapy crawl quotes -o quotes.csv`
