@@ -1,0 +1,6 @@
+
+<!-- Estos son los comandos usados cuando en la consola activamos el shell de scrapy -->
+<!-- scrapy shell 'https://quotes.toscrape.com/' -->
+
+<!-- contains(@class, "tags-box"), verifica que el div contenga la clase "tags-box", ya que ese div tiene 2 clases juntas -->
+response.xpath('//div[contains(@class, "tags-box")]//span[@class="tag-item"]/a/text()').getall()
