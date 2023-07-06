@@ -31,3 +31,13 @@ Con esto se ejecuta el spider que creamos llamado "quotes" y que tenga un output
 
 Es exactamente lo de arriba pero guardandolo en un archivo csv.
 `scrapy crawl quotes -o quotes.csv`
+
+Tambien agregando este codigo debajo de "Start_url" del spider, 
+podemos guardar automaticamente lo descargado en consola, (luego de agregar ese codigo no es necesario usar el flag -o)
+
+```
+  custom_settings = { 
+    'FEED_URI': 'quotes.json',
+    'FEED_FORMAT': 'json'
+  }
+```
