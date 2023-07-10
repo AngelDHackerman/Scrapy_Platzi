@@ -24,10 +24,16 @@ class QuotesSpider(scrapy.Spider):
     def parse_only_quotes(self, response, **kwargs):
         # Esta función se encarga de extraer solo las citas de la página
         if kwargs:
-            # Si se pasaron citas como argumentos, las usa
             quotes = kwargs['quotes']
-        quotes.extend(response.xpath(
-            '//span[@class="text" and @itemprop="text"]/text()').getall())  # Extrae las citas de la página actual
+        # Extrae las citas de la página actual
+        quote_blocks = response.xpath('//div[@class="quote"]')
+        for quote in quote_blocks:
+            text = quote.xpath('.//span[@class="text" and @itemprop="text"]/text()').get()
+            author = quote.xpath('.//span/small[@class="author" and @itemprop="author"]/text()').get()
+            quotes.append({
+                'text': text,
+                'author': author
+            })
 
         next_page_button_link = response.xpath(
             '//ul[@class="pager"]//li[@class="next"]/a/@href').get()  # Busca el enlace al botón de la siguiente página
@@ -39,6 +45,7 @@ class QuotesSpider(scrapy.Spider):
             yield {
                 'quotes': quotes
             }
+
 
     def parse(self, response):
         # Esta función se encarga de extraer el título de la página y los tags principales
